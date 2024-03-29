@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+body, html 
+{
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+}
+
+.container 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.bin
+{
+    max-width: 20%;
+    max-height:10%;
+    float:left;
+}
+
+h1
+{
+    font-family:'Courier New', Courier, monospace;
+    font-size:larger;
+    color:whitesmoke;
+    margin-left:-500px;
+    font-size:40px;
+    letter-spacing:3px;
+    text-shadow:2px 2px grey;
+}
+
+.tablink 
+{
+  background-color: #000000;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 20px 60px;
+  font-size: 18px;
+  width: 25%;
+}
+
+.tablink:hover 
+{
+  color:#870707;
+}
+
+.tabcontent 
+{
+  color: white;
+  display: none;
+  padding: 10px 20px;
+  height: 100%;
+  margin:10px;
+  margin-left:10px;
+}
+
+h2
+{
+   padding-left:500px;
+   padding-top:30px;
+   padding-bottom:60px;
+   font-size:30px;
+}
+
+.row
+{
+  box-sizing: border-box;
+}
+
+.column 
+{
+  float: left;
+  padding-left:30px;
+  padding-right:30px;
+}
+
+.row::after 
+{
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.cols
+{
+  position: relative;
+  width: 50%;
+}
+
+.ready
+{
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+} 
+
+.text 
+{
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.cols:hover .ready
+{
+  opacity: 0.5;
+}
+
+.cols:hover .text 
+{
+  opacity: 1;
+}
+
+.round
+{
+  border-radius:5px;
+}
+
+.confused
+{
+  font-size:35px;
+  padding-left:18%;
+  font-family:'Courier New', Courier, monospace;
+}
+ 
+
+.about{
+    width: 100%;
+    padding: 100px 0px;
+    background-color:black;
+}
+.about img{
+    height: auto;
+    width: 430px;
+    border-radius: 20px 0 20px 0;
+}
+.main{
+    width: 1130px;
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color:white;
+}
+.about h2{
+    color:white;
+    font-size: 75px;
+    text-transform: capitalize;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.about-text p{
+    color: #97a2a3;
+    letter-spacing: 1px;
+    line-height: 28px;
+    font-size: 18px;
+    margin-bottom: 45px;
+    color:white;
+}
+.about-text{
+    width: 500px;
+    color:white;
+}
+
+
+
+.contact
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+    background: black;
+}
+.contact-info,.contact-form
+{
+    width: 100%;
+    max-width: 400px;
+    margin: 20px;
+    text-align: center;
+    color: #edffef;
+    font-size: 25px;
+}
+.contact-info h2, .contact-form h2
+{
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #edffef;
+}
+.contact-form form
+{
+    text-align: center;
+}
+.contact-form label, 
+.contact-form input , 
+.contact-form textarea ,
+ .contact-form button
+ {
+display: block;
+width: 100%;
+margin-bottom: 10px;
+}
+
+.contact-form button
+{
+    background-color: black;
+    color: #fff;
+    text-decoration: none;
+    border: 2px solid white;
+    font-weight: bold;
+    transform:.4s;
+    padding:10px 0px;
+}
+
+.contact-form button:hover
+{
+    background-color: black;
+    color: #213032;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+.contact-form label
+{
+    text-align: left;
+    color: #edffef;
+}
+
+.contact-form input, .contact-form textarea
+{
+    padding: 8px;
+}
+
+.contact-info p
+{
+padding: 0px;
+}
+
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+ #signin {
+        font-family: Arial, sans-serif;
+        background-color: black;
+    }
+
+    .container1 {
+        width: 300px;
+        margin: 0 auto;
+        margin-top: 100px;
+        background:black;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+color:white;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: calc(100% - 12px);
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    .create-account-link {
+        text-align: center;
+    }
+ 
+
+#Home {background-color: rgb(0, 0, 0);}
+#Contact {background-color: rgb(0, 0, 0);}
+#About us {background-color: rgb(0, 0, 0);}
+#signin{background-color: rgb(0, 0, 0);}
+
+</style>
+</head>
+
+
+<body bgcolor="black">
+
+<div class="container">
+         <div class="image">
+         <img src="C:\Users\Bincy\Pictures\Screenshots\Screenshot 2024-03-26 065617.png"; class="bin">
+         </div>
+         <h1><center>TASTE THE HEAVEN</center></h1>
+</div>
+
+<br><br>
+
+<button class="tablink" onclick="openPage('Home',this,'#777')" id="defaultOpen">Home</button>
+<button class="tablink" onclick="openPage('Contact',this,'#777')">Contact</button>
+<button class="tablink" onclick="openPage('About us',this,'#777')">About us</button>
+<button class="tablink" onclick="openPage('signin',this,'#777')">Sign in</button>
+
+
+<div id="Home" class="tabcontent">
+
+<div class="recipe">
+<h2>Featured Recipes</h2>
+
+<div class="row">
+
+<div class="column">
+<div class="cols">
+<img src="https://tpc.googlesyndication.com/simgad/4654229399576172632?sqp=-oaymwEMCMgBEMgBIAFQAVgB&rs=AOga4qk1XnzYFMaPhKDxixrvs4vDErDMvA alt" alt="cake" style="width:300px ;height:300px"; class="ready">
+<div class="text"><pre><b> Cake is Happiness! If you know the way of cake
+You will know the way of Happinness. <br>
+<button class="round" onclick="openpage('cakes')"> Want it ? </button></pre>
+</div>
+</div>
+</div>
+
+
+<div class="column">
+<div class="cols">
+<img src="https://img.freepik.com/free-photo/slice-crispy-pizza-with-meat-cheese_140725-6974.jpg?w=360&t=st=1711612124~exp=1711612724~hmac=c58f829218a2eed9b34ce4cad0afc02c7dfc72da0a003bfd57d212767476c598" alt="pizza" style="width:300px; height:300px"; class="ready">
+<div class="text"><pre><b>Experiencing a rough day?? 
+I have a better way to make you happy <br>
+<button class="round">Here it is!</button></pre>    
+</div> 
+</div> 
+</div>
+
+
+<div class="column">
+<div class="cols">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_UQ4YdPmSLfAAdR9SPxvgsPWx0Fb7xagNDA&usqp=CAU" alt="pasta" style="width:300px; height:300px";    class="ready">
+<div class="text"><pre><b>Are you reddy for a cup of pasta??
+ then what are you waiting for<br> 
+<button class="round"> Here's the Secret! </button> </pre>
+</div>
+</div>
+</div>
+
+  
+</div>
+
+<br><br><br><br>
+
+<div class="row">
+
+<div class="column">
+<div class="cols">
+<img src="https://www.vegrecipesofindia.com/wp-content/uploads/2011/10/grilled-paneer-tikka.jpg" alt="paneer tikka" style="width:300px ;height:300px"; class="ready">
+<div class="text"><pre><b> I just cant wait to taste it 
+   What are you waiting for??<br>
+<button class="round"> The wait is over!!</button></pre>
+</div>
+</div>
+</div>
+
+
+<div class="column">
+<div class="cols">
+<img src="https://www.cubesnjuliennes.com/wp-content/uploads/2018/12/Spicy-Chicken-Fry-Recipe.jpg" alt="Chicken kabab" style="width:300px; height:300px"; class="ready">
+<div class="text"><pre><b>How can you not try this! 
+Can something be better than this?. <br>
+<button class="round">Here it is!!</button></pre>    
+</div> 
+</div> 
+</div>
+
+
+<div class="column">
+<div class="cols">
+<img src="https://recipes.net/wp-content/uploads/2023/05/air-fryer-chicken-biryani-recipe_6968eb6ab4a5ae22d136dab86c9ea8af.jpeg" alt="Chicken Biryani" style="width:300px; height:300px";    class="ready">
+<div class="text"><pre> Same pinch !! 
+This is my favourite and i know its yours as well. <br> 
+<button class="round"> Wanna know the right way? </button> </pre>
+</div>
+</div>
+</div>
+
+</div>
+
+<br><br><br><br><br>
+<h3 class="confused"> Are You Confused What to Pack For Box? </h3>
+<br><br><br>
+
+
+
+<div class="row">
+
+<div class="column">
+<div class="cols">
+<img src="https://www.archanaskitchen.com/images/archanaskitchen/0-Affiliate-Articles/RESTAURANT_STYLE_SOUTH_INDIAN_THALI_original.jpg" alt="Breakfast" style="width:300px ;height:300px"; class="ready">
+<div class="text"><pre><b>Breakfast is everything. 
+The beginning, the first thing. 
+It is the mouthful that is the commitment to a new day. <br>
+<button class="round"> Breakfast Recipe </button></pre>
+</div>
+</div>
+</div>
+
+
+<div class="column">
+<div class="cols">
+<img src="https://assets.zeezest.com/images/PROD_1_1666074059557_thumb_800.jpeg?w=3840&q=75 " alt="lunch" style="width:300px; height:300px"; class="ready">
+<div class="text"><pre><b>Small bites, big delights. 
+That's what lunch is all about. <br>
+<button class="round"> Lunch Recipe </button></pre>    
+</div> 
+</div> 
+</div>
+
+
+<div class="column">
+<div class="cols">
+<img src="https://i.pinimg.com/736x/f7/f1/bc/f7f1bca5f427c469401dfbb33c2d2335.jpg " alt="Dinner" style="width:300px; height:300px";    class="ready">
+<div class="text"><pre><b> There can be no better way to end a day
+without a delicious dinner. Do you Agree with me ? <br> 
+<button class="round"> Dinner Recipe </button> </pre>
+</div>
+</div>
+</div>
+
+</div>
+ <br><br><br>
+
+<div>
+<section class="about">
+<div class="main">
+<img src="C:\Users\Bincy\Downloads\desserts.jfif" alt="" style="border-radius:50%";>
+<div class="about-text">
+<h6 style="font-family:'Courier New', Courier, monospace;padding-left:100px;font-size:50px;text-decoration:underline";>About Us</h6>
+<p>Welcome to our recipe website, where culinary inspiration meets delicious creations! Whether you're a
+seasoned chef or a passionate home cook, we are here to ignite your taste buds and guide you on a
+delightful culinary journey. Our extensive collection of recipes covers a wide range of cuisines,
+from comforting classics to innovative fusion dishes. Each recipe is thoughtfully crafted, tested,
+and presented with step-by-step instructions, ensuring that even the novice cook can create
+extraordinary meals. We believe that cooking is an art form that brings people together, and our
+goal is to empower you to explore your culinary creativity and make every meal a masterpiece. So
+come on in, explore our diverse recipe collection, and let's embark on a delightful gastronomic
+adventure together!</p>
+
+</div>
+</div>
+</section>
+
+
+<div><h6 style="font-family:'Courier New', Courier, monospace;padding-left:400px;font-size:50px;text-decoration:underline";>Contact Us</h6>
+<section class="contact">
+ <div class="contact-info"> 
+         </p><strong>Address: </strong>HSR Layout BDA complex , Bangalore</p>
+         <p><strong>Phone  : </strong>3478488876</p>
+         <p><strong>Email  : </strong>tasteofheaven@gmail.com</p>
+ </div>
+      
+<div class="contact-form">
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" required>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" required>
+                <label for="message">Message:</label>
+                <textarea name="message" id="message"  required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+</div>
+</section>  
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<div id="Contact" class="tabcontent">
+<section class="contact"><br><br><br><br><br><br>
+<div class="contact-info"> <br><br><br>
+</p><strong>Address: </strong>HSR Layout BDA complex , Bangalore</p>
+<p><strong>Phone No : </strong>3478488876</p>
+<p><strong>Email-Id : </strong>tasteofheaven@gmail.com</p>
+ </div>
+      
+<div class="contact-form"><br><br><br>
+<form>
+<label for="name">Name:</label>
+                <input type="text" name="name" id="name" required>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" required>
+                <label for="message">Message:</label>
+                <textarea name="message" id="message"  required></textarea>
+                <button type="submit">Send Message</button>
+</form>
+</div>
+</section>  
+</div>
+
+
+
+
+
+<div id="About us" class="tabcontent">
+<section class="about">
+<h2>About Us</h2>
+<div class="main">
+<img src="C:\Users\Bincy\Downloads\desserts.jfif" alt="" style="border-radius:50%";>
+<div class="about-text">
+<p>Welcome to our recipe website, where culinary inspiration meets delicious creations! Whether you're a
+seasoned chef or a passionate home cook, we are here to ignite your taste buds and guide you on a
+delightful culinary journey. Our extensive collection of recipes covers a wide range of cuisines,
+from comforting classics to innovative fusion dishes. Each recipe is thoughtfully crafted, tested,
+and presented with step-by-step instructions, ensuring that even the novice cook can create
+extraordinary meals. We believe that cooking is an art form that brings people together, and our
+goal is to empower you to explore your culinary creativity and make every meal a masterpiece. So
+come on in, explore our diverse recipe collection, and let's embark on a delightful gastronomic
+adventure together!</p>
+
+</div>
+</div>
+</section> 
+</div>
+
+
+
+
+<div id="signin" class="tabcontent">
+
+<div class="container1">
+    <h2 style="padding-left:100px";>Login</h2>
+    <form id="loginForm" onsubmit="return false;">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <input type="submit" value="Login" onclick="login()">
+    </form>
+    <div class="create-account-link">
+        <p>Don't have an account? <a href="#" onclick="showCreateAccountForm()">Create one</a></p>
+    </div>
+</div>
+
+<div class="container1" id="createAccountForm" style="display: none;">
+    <h2 style="padding-left:100px";>Create Account</h2>
+    <form id="newAccountForm" onsubmit="return false;">
+        <label for="newUsername">Username</label>
+        <input type="text" id="newUsername" name="newUsername" required>
+        <label for="newPassword">Password</label>
+        <input type="password" id="newPassword" name="newPassword" required>
+        <input type="submit" value="Create Account" onclick="createAccount()">
+    </form>
+</div>
+
+<script>
+    function login() {
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+
+                alert("Username: " + username + "\nPassword: " + password);
+    }
+
+    function showCreateAccountForm() {
+        var createAccountForm = document.getElementById('createAccountForm');
+        createAccountForm.style.display = 'block';
+    }
+
+    function createAccount() {
+        var newUsername = document.getElementById('newUsername').value;
+        var newPassword = document.getElementById('newPassword').value;
+
+        
+        alert("New Username: " + newUsername + "\nNew Password: " + newPassword);
+    }
+</script>
+
+</div>
+
+
+
+
+<script>
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+document.getElementById("defaultOpen").click();
+</script>
+
+
+  
+</body>
+</html> 
